@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>User Dashboard</title>
+ <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
+
+  /* Added Styles for Navbar and Form */
+  nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: right;
+  }
+
+  nav a {
+    margin-left: 10px;
+    color: #fff;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* Media Queries for Responsiveness */
+  @media (max-width: 767px) {
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    nav {
+      text-align: center;
+    }
+
+    nav a {
+      display: block;
+      margin: 10px 0;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    table {
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+ <nav>
+    <a href="/users/logout">Logout</a>
+ </nav>
+
+ <div class="container">
+    <h4>Hello <%= user.charAt(0).toUpperCase() + user.slice(1) %></h4>
+
+    <p>Welcome, <%= user.charAt(0).toUpperCase() + user.slice(1) %>!</p>
+
+    <form action="/shorten" method="post">
+      <label for="fullUrl">Enter URL:</label>
+      <input type="text" name="fullUrl" id="fullUrl" required>
+      <button type="submit">Shorten URL</button>
+    </form>
+
+    <h3>Your Short URLs:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Full URL</th>
+          <th>Short URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% links.forEach(link => { %>
+          <tr>
+            <td><a href="<%= link.full_url %>" target="_blank"><%= link.full_url %></a></td>
+            <td><a href="<%= link.short_url %>" target="_blank"><%= link.short_url %></a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+ </div>
+</body>
+</html>

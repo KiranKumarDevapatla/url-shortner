@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics</title>
+</head>
+<body>
+  <h1>Analytics for Short Link</h1>
+  <% if (error) { %>
+    <p><%= error %></p>
+  <% } else { %>
+    <p>Original URL: <%= linkData.original_url %></p>
+    <p>Short URL: <%= linkData.short_url %></p>
+    <p>Created At: <%= linkData.created_at %></p>
+    <p>Expires At: <%= linkData.expires_at %></p>
+  <% } %>
+  
+  <a href="/users/dashboard">Back to Dashboard</a>
+</body>
+</html>

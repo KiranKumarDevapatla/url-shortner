@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+        border: 1px solid #333;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #333;
+        color: #fff;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+      <h1>url shortner</h1>
+    </header>
+
+    <div class="container">
+      <% if (typeof message !== 'undefined' ) { %>
+        <p><%= message %></p>
+      <% } %>
+
+      <a href="/users/login">Login</a>
+    </div>
+  </body>
+</html>

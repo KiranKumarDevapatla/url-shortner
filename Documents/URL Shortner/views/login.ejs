@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: #d9534f; /* Bootstrap's danger color for error messages */
+      }
+
+      form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #555;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      a:hover {
+        color: #555;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <h1>Login</h1>
+    </header>
+
+    <form action="/users/login" method="POST">
+      <div>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div>
+        <input type="submit" value="Login" />
+      </div>
+
+      <ul>
+        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+        <li><%= error.message %></li>
+        <% }) %> <% } %>
+      </ul>
+
+      <ul>
+        <% if(messages.success_msg) { %>
+        <li><%= messages.success_msg %></li>
+        <% } %>
+      </ul>
+
+      <ul>
+        <% if (messages.error) { %>
+        <li><%= messages.error %></li>
+        <% } %>
+      </ul>
+
+      <a href="/users/register">Register</a>
+    </form>
+  </body>
+</html>
