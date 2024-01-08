@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e6f7ff;
+        transition: background-color 0.5s ease;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1em 0;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #4285f4;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #0c7cd5;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        animation: slideIn 1s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-20px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to URL Shortener</h1>
+    </header>
+
+    <div class="container">
+      <% if (typeof message !== 'undefined' ) { %>
+        <p><%= message %></p>
+      <% } %>
+
+      <a href="/users/login">Login</a>
+    </div>
+  </body>
+</html>
