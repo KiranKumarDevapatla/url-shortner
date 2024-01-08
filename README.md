@@ -10,6 +10,8 @@ This project is a URL shortening service implemented using Node.js and Express.j
 * Passport.js: An authentication middleware for Node.js that supports various authentication strategies. In this project, the local strategy is used for email/password authentication.
 * EJS: A template engine for generating HTML markup with embedded JavaScript in the views.
 * Nanoid: A small, secure, URL-friendly unique string ID generator used for creating short URL identifiers.
+
+  
 **Project Structure:**
 
 * The project follows a client-server architecture.
